@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app='storeFront'>
+  <head>
+    <meta charset="utf-8">
+    <title>Store Front</title>
+
+   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7' crossorigin='anonymous'>
+   <link rel="stylesheet" type="text/css" href="css/shop.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+   <script src="js/shop.js"></script>
+
+
+  </head>
+  <body>
+    <div class="container">
+
+      <table class="table table-striped" ng-controller="StoreController as sc">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Color</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in sc.inventory">
+            <td>{{item.name}}</td>
+            <td> {{ (item.price - item.discount) + ((item.price - item.discount) * sc.tax) | currency }}
+              <img ng-show= "item.discount > 0" src='https://tiy-learn-content.s3.amazonaws.com/98350f05-sale_2.png'>
+            </td>
+
+            <td>{{item.quantity}}</td>
+            <td>{{item.color}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+  </div>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+$themeLight: #dddddd;
+$themeDark: #4f4f4f;
+
+div{
+  margin-top: 3em;
+}
+table {
+  font-family: Verdana;
+  font-size: 1em;
+  font-variant: small-caps;
+  border: 1px solid $themeLight;
+}
+
+table thead{
+  color: $themeDark;
+}
+
+img{
+  height: 1.2em; 
+}
