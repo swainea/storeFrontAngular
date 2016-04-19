@@ -24,7 +24,7 @@ img {
   font-size: .5em;
   padding: .5em; }
 
-input.ng-invalid.ng-touched, .ng-submitted input.invalid {
+input.ng-invalid.ng-touched, .ng-submitted input.ng-invalid {
   border: 1px solid red; }
 
 /*# sourceMappingURL=shop.css.map */

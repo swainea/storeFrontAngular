@@ -39,7 +39,6 @@
     this.save = function saveItem(form){
       if (form.$valid){
         itemList.push(this.newItem);
-        console.log(itemList);
         this.newItem = {
           name: "",
           price: "",
@@ -50,7 +49,8 @@
         form.$setPristine();
         form.$setUntouched();
       } else {
-        //do somethign here
+        console.log('invalid information');
+
       }
     };
 
@@ -62,7 +62,7 @@
       if ( item.quantity === 0 ){
         item.quantity = 0;
       } else {
-        item.quantity = item.quantity - 1; 
+        item.quantity = item.quantity - 1;
       }
     };
 

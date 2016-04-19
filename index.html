@@ -40,12 +40,15 @@
         </tbody>
       </table>
 
+
       <form novalidate name ="createItem" ng-submit="sc.save(createItem)" class="createItem">
         <input ng-model="sc.newItem.name" type="text" required min="2"placeholder="Name" class="form-control">
         <input ng-model="sc.newItem.price" type="number" required min="1" step="0.01" placeholder="Price" class="form-control">
         <input ng-model="sc.newItem.quantity" type="number" required placeholder="Quantity" class="form-control">
         <input ng-model="sc.newItem.color" type="text" min="2" required placeholder="Color" class="form-control">
         <input ng-model="sc.newItem.discount" type="number" required placeholder="Discount" class="form-control">
+
+        <!-- <p ng-show="form.$invalid"> INVALID INFO </p> -->
 
         <button class="btn btn-primary">
           Add Item
