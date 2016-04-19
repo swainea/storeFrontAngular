@@ -16,5 +16,18 @@ table thead{
 }
 
 img{
-  height: 1.2em; 
+  height: 1.2em;
 }
+
+.createItem{
+  text-align: center;
+}
+
+.form-control{
+  width: 15%;
+  display: inline-block;
+}
+
+input.ng-invalid.ng-touched, .ng-submitted input.invalid {
+        border: 1px solid red;
+      }

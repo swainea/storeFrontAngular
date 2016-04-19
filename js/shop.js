@@ -25,6 +25,37 @@ angular
 function StoreController(){
   this.inventory = itemList;
   this.tax = tax;
+
+  this.newItem = {
+    name: "",
+    price: "",
+    quantity: "",
+    color: "",
+    discount: "",
+  };
+
+  this.sortOrder = "quantity";
+
+  this.save = function saveItem(form){
+    console.log(this.newItem);
+    if (form.$valid){
+      itemList.push(this.newItem);
+      console.log(itemList);
+      this.newItem = {
+          name: "",
+          price: "",
+          quantity: "",
+          color: "",
+          discount: ""
+        };
+      form.$setPristine();
+      form.$setUntouched(); 
+      } else {
+      //do somethign here
+    }
+  };
+
+
 }
 
 }());

@@ -12,9 +12,9 @@
 
   </head>
   <body>
-    <div class="container">
+    <section class="container" ng-controller="StoreController as sc">
 
-      <table class="table table-striped" ng-controller="StoreController as sc">
+      <table class="table table-striped">
         <thead>
           <tr>
             <th>Name</th>
@@ -24,7 +24,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="item in sc.inventory">
+          <tr ng-repeat="item in sc.inventory | orderBy: sc.sortOrder" >
             <td>{{item.name}}</td>
             <td> {{ (item.price - item.discount) + ((item.price - item.discount) * sc.tax) | currency }}
               <img ng-show= "item.discount > 0" src='https://tiy-learn-content.s3.amazonaws.com/98350f05-sale_2.png'>
@@ -36,6 +36,17 @@
         </tbody>
       </table>
 
-  </div>
+      <form novalidate name ="createItem" ng-submit="sc.save(createItem)" class="createItem">
+        <input ng-model="sc.newItem.name" type="text" required min="2"placeholder="Name" class="form-control">
+        <input ng-model="sc.newItem.price" type="number" required min="1" step="0.01" placeholder="Price" class="form-control">
+        <input ng-model="sc.newItem.quantity" type="number" required placeholder="Quantity" class="form-control">
+        <input ng-model="sc.newItem.color" type="text" min="2" required placeholder="Color" class="form-control">
+        <input ng-model="sc.newItem.discount" type="number" required placeholder="Discount" class="form-control">
+
+        <button class="btn btn-primary">
+          Add Item
+        </button>
+      </form>
+  </section>
   </body>
 </html>
