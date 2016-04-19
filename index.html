@@ -30,7 +30,11 @@
               <img ng-show= "item.discount > 0" src='https://tiy-learn-content.s3.amazonaws.com/98350f05-sale_2.png'>
             </td>
 
-            <td>{{item.quantity}}</td>
+            <td>
+              <button class="btn btn-primary btn-xs quantity" ng-click="sc.increment(item)"> + </button>
+                {{item.quantity}}
+              <button class="btn btn-primary btn-xs quantity" ng-click="sc.decrement(item)"> - </button>
+            </td>
             <td>{{item.color}}</td>
           </tr>
         </tbody>

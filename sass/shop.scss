@@ -28,6 +28,11 @@ img{
   display: inline-block;
 }
 
+.quantity{
+  font-size: .5em;
+  padding: .5em;
+}
+
 input.ng-invalid.ng-touched, .ng-submitted input.invalid {
         border: 1px solid red;
       }
