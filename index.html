@@ -7,13 +7,20 @@
    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7' crossorigin='anonymous'>
    <link rel="stylesheet" type="text/css" href="css/shop.css">
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-   <script src="js/shop.js"></script>
+   <script src="js/main.js"></script>
+   <script src="js/controllers/shop.js"></script>
+   <script src="js/controllers/user-shop.js"></script>
+   <script src="js/factories/shop.js"></script>
 
 
   </head>
   <body>
+    <section class="container" ng-controller="loginController as lc">
+      <h3>Hello, {{lc.username}}! {{ lc.date | date : "MMM dd h:mm a" }}</h3>
+    </section>
     <section class="container" ng-controller="StoreController as sc">
 
+      </header>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -42,15 +49,16 @@
 
 
       <form novalidate name ="createItem" ng-submit="sc.save(createItem)" class="createItem">
+        <!-- <p class ="form-error" ng-show="createItem.$invalid && createItem.submitted"> INVALID INFO </p> -->
+
         <input ng-model="sc.newItem.name" type="text" required min="2"placeholder="Name" class="form-control">
         <input ng-model="sc.newItem.price" type="number" required min="1" step="0.01" placeholder="Price" class="form-control">
         <input ng-model="sc.newItem.quantity" type="number" required placeholder="Quantity" class="form-control">
         <input ng-model="sc.newItem.color" type="text" min="2" required placeholder="Color" class="form-control">
         <input ng-model="sc.newItem.discount" type="number" required placeholder="Discount" class="form-control">
 
-        <!-- <p ng-show="form.$invalid"> INVALID INFO </p> -->
-
         <button class="btn btn-primary">
+
           Add Item
         </button>
       </form>
